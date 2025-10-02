@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數位媒體科技課程入口</title>
+    <!-- 載入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 設定 Inter 字體 -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', 'Microsoft JhengHei', Arial, sans-serif;
+            background-color: #f7f9fc; /* 淺灰色背景 */
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 sm:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <!-- 標題區塊 -->
+        <header class="text-center mb-10 p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-600">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-2">
+                數位媒體科技：從概念到應用
+            </h1>
+            <p class="text-xl text-indigo-600 font-medium">
+                Digital Media Technology: Concepts to Applications
+            </p>
+            <p class="mt-4 text-gray-600">
+                歡迎進入數位媒體的世界！點擊下方各週課程卡片，開始您的互動學習之旅。
+            </p>
+        </header>
+
+        <!-- 課程列表區塊 (已改為條列式佈局) -->
+        <main class="space-y-6">
+            <!-- 課程卡片 1: 數位世界基礎 -->
+            <a href="#week-1-foundation" class="course-card block">
+                <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:scale-[1.01] border-l-4 border-yellow-500">
+                    <span class="text-sm font-semibold text-yellow-500 block mb-1">第一週</span>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">數位世界基礎</h2>
+                    <p class="text-gray-500 text-sm mb-4">
+                        了解數位化的核心原理，區分數位與類比，掌握二進制的基礎。
+                    </p>
+                    <ul class="text-sm space-y-1 text-gray-600 list-disc pl-5">
+                        <li>數位與類比的差異</li>
+                        <li>二進制系統 (0和1)</li>
+                        <li>位元 (Bit) 與位元組 (Byte)</li>
+                    </ul>
+                </div>
+            </a>
+
+            <!-- 課程卡片 2: 數位圖像與視覺傳達 -->
+            <a href="#week-2-image" class="course-card block">
+                <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:scale-[1.01] border-l-4 border-green-500">
+                    <span class="text-sm font-semibold text-green-500 block mb-1">第二週</span>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">數位圖像與視覺傳達</h2>
+                    <p class="text-gray-500 text-sm mb-4">
+                        探索圖像的兩大類型：向量圖和點陣圖，並學習色彩理論。
+                    </p>
+                    <ul class="text-sm space-y-1 text-gray-600 list-disc pl-5">
+                        <li>點陣圖 vs. 向量圖</li>
+                        <li>圖像解析度與像素</li>
+                        <li>RGB 與 CMYK 色彩模式</li>
+                    </ul>
+                </div>
+            </a>
+
+            <!-- 課程卡片 3: 網頁設計入門與互動性 -->
+            <a href="#week-3-web" class="course-card block">
+                <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:scale-[1.01] border-l-4 border-blue-500">
+                    <span class="text-sm font-semibold text-blue-500 block mb-1">第三週</span>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">網頁設計入門與互動性</h2>
+                    <p class="text-gray-500 text-sm mb-4">
+                        認識現代網頁的骨幹、皮膚與神經：HTML, CSS, JavaScript。
+                    </p>
+                    <ul class="text-sm space-y-1 text-gray-600 list-disc pl-5">
+                        <li>HTML 結構基礎</li>
+                        <li>CSS 樣式設定</li>
+                        <li>互動網頁概念介紹</li>
+                    </ul>
+                </div>
+            </a>
+            
+            <!-- 待續區塊 -->
+            <div class="p-6 bg-gray-200 text-center rounded-xl shadow-inner">
+                <p class="text-lg text-gray-600 font-semibold">
+                    更多內容即將推出... (第四週：數位音訊與影片編輯基礎)
+                </p>
+            </div>
+
+        </main>
+
+        <!-- 頁腳/版權信息 -->
+        <footer class="mt-12 text-center text-gray-500 text-sm">
+            <p>&copy; 2024 數位媒體科技課程教材 | 互動設計實驗室出品</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
