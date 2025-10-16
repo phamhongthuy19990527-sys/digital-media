@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上傳音樂播放器</title>
+    <!-- 載入 Tailwind CSS CDN -->
+    <script src="audio1.mp3"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#4f46e5',
+                        'primary-dark': '#4338ca',
+                        'background': '#f3f4f6',
+                        'card-bg': '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 自定義進度條樣式 */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #4f46e5;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background: #4338ca;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.3);
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex items-center justify-center p-4 font-sans">
+    <div class="w-full max-w-2xl bg-white shadow-xl rounded-xl p-6 md:p-8">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6 border-b-2 pb-4">
+            上傳音樂播放清單
+        </h1>
+
+        <!-- 播放列表容器 -->
+        <div id="audio-list" class="space-y-4">
+            <!-- 播放器元件將由 JavaScript 渲染到這裡 -->
+        </div>
+    </div>
+
+    <script>
+        // 檔案列表：使用您上傳的檔案名稱和 Content Fetcher URL
+        const songs = [
+            { id: 'song-0', name: 'audio1.mp3', url: 'audio1.mp3' },
+            { id: 'song-1', name: 'audio2.mp3', url: 'audio2.mp3' },
+        ];
+
+        // 儲存目前正在播放的 Audio 實例，用於控制單一播放
+        let currentAudio = null;
+        let currentSongId = null;
+
+        /**
+         * 將時間（秒）格式化為 MM:SS 格式
+         * @param {number} seconds - 總秒數
+         * @returns {string} - 格式化後的時間字串
+         */
+        function formatTime(seconds) {
+            if (isNaN(seconds) || seconds < 0) return '00:00';
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            const paddedMinutes = String(minutes).padStart(2, '0');
+            const paddedSeconds = String(remainingSeconds).padStart(2, '0');
+            return `${paddedMinutes}:${paddedSeconds}`;
+        }
+
+        /**
+         * 創建單個音訊播放器卡片
+         * @param {object} song - 歌曲物件 { id, name, url }
+         * @returns {string} - HTML 字串
+         */
+        function createAudioCard(song) {
+            // Play Icon (SVG) - Lucide 'play'
+            const playIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+            // Pause Icon (SVG) - Lucide 'pause'
+            const pauseIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><rect width="4" height="16" x="6" y="4"></rect><rect width="4" height="16" x="14" y="4"></rect></svg>`;
+
+            return `
+                <div id="card-${song.id}" class="audio-card bg-card-bg p-4 rounded-lg shadow-md border border-gray-100 transition duration-300 hover:shadow-lg">
+                    <div class="flex items-center space-x-4">
+                        <!-- 播放/暫停按鈕 -->
+                        <button
+                            id="btn-${song.id}"
+                            data-song-id="${song.id}"
+                            class="play-pause-btn flex items-center justify-center w-12 h-12 text-white bg-primary rounded-full hover:bg-primary-dark transition duration-150 transform hover:scale-105"
+                            aria-label="播放/暫停 ${song.name}"
+                        >
+                            ${playIcon}
+                        </button>
+                        
+                        <!-- 歌曲資訊和控制項 -->
+                        <div class="flex-grow">
+                            <p class="text-lg font-semibold text-gray-900 truncate" title="${song.name}">${song.name}</p>
+                            
+                            <div class="flex items-center space-x-3 mt-2">
+                                <!-- 進度條 -->
+                                <input type="range" id="progress-${song.id}" min="0" max="100" value="0" step="0.1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg">
+                                
+                                <!-- 時間顯示 -->
+                                <div id="time-${song.id}" class="text-sm font-mono text-gray-600 w-20 text-right">
+                                    00:00 / 00:00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 隱藏的 Audio 元素 -->
+                    <audio id="audio-${song.id}" src="${song.url}" preload="metadata"></audio>
+                </div>
+            `;
+        }
+
+        /**
+         * 初始化播放器並設置事件監聽器
+         */
+        function initializePlayer() {
+            const audioListContainer = document.getElementById('audio-list');
+            if (!audioListContainer) return;
+
+            // 1. 渲染卡片
+            audioListContainer.innerHTML = songs.map(createAudioCard).join('');
+
+            // 2. 設置事件監聽器
+            songs.forEach(song => {
+                const audio = document.getElementById(`audio-${song.id}`);
+                const btn = document.getElementById(`btn-${song.id}`);
+                const progress = document.getElementById(`progress-${song.id}`);
+                const timeDisplay = document.getElementById(`time-${song.id}`);
+
+                if (!audio || !btn || !progress || !timeDisplay) return;
+
+                // 2.1. 載入元數據完成後，更新總時間和進度條最大值
+                audio.addEventListener('loadedmetadata', () => {
+                    progress.max = audio.duration;
+                    timeDisplay.textContent = `00:00 / ${formatTime(audio.duration)}`;
+                });
+                
+                // 2.2. 時間更新時，更新進度條和當前時間
+                audio.addEventListener('timeupdate', () => {
+                    progress.value = audio.currentTime;
+                    // 更新進度條顏色 (Tailwind trick)
+                    const percent = (audio.currentTime / audio.duration) * 100;
+                    progress.style.background = `linear-gradient(to right, #4f46e5 0%, #4f46e5 ${percent}%, #e5e7eb ${percent}%, #e5e7eb 100%)`;
+                    timeDisplay.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+                });
+
+                // 2.3. 播放結束
+                audio.addEventListener('ended', () => {
+                    btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+                    audio.currentTime = 0; // 重置到開頭
+                    progress.value = 0;
+                    currentAudio = null;
+                    currentSongId = null;
+                });
+
+                // 2.4. 播放狀態變化，更新按鈕圖示
+                audio.addEventListener('play', () => {
+                    btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><rect width="4" height="16" x="6" y="4"></rect><rect width="4" height="16" x="14" y="4"></rect></svg>`;
+                });
+                audio.addEventListener('pause', () => {
+                    btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+                });
+
+                // 2.5. 進度條拖動事件
+                progress.addEventListener('input', (e) => {
+                    // 暫停 timeupdate 監聽器以避免衝突
+                    if (audio.readyState > 0) { // 確保音訊已載入
+                        audio.currentTime = parseFloat(e.target.value);
+                    }
+                });
+
+                // 2.6. 播放/暫停按鈕點擊事件
+                btn.addEventListener('click', () => {
+                    // 檢查是否有其他音訊正在播放
+                    if (currentAudio && currentAudio !== audio) {
+                        currentAudio.pause();
+                        // 重置舊的按鈕圖示 (pause event listener handles the icon update)
+                    }
+
+                    if (audio.paused) {
+                        // 播放選定的音訊
+                        audio.play().catch(e => {
+                            console.error("播放音訊失敗:", e);
+                            // 顯示錯誤訊息給使用者 (使用 custom modal UI, not alert)
+                            const card = document.getElementById(`card-${song.id}`);
+                            const errorMsg = document.createElement('p');
+                            errorMsg.className = 'text-red-500 text-sm mt-2';
+                            errorMsg.textContent = '播放失敗，請檢查檔案是否有效。';
+                            card.appendChild(errorMsg);
+                            setTimeout(() => card.removeChild(errorMsg), 5000);
+                        });
+                        currentAudio = audio;
+                        currentSongId = song.id;
+                    } else {
+                        // 暫停
+                        audio.pause();
+                        currentAudio = null;
+                        currentSongId = null;
+                    }
+                });
+            });
+        }
+
+        // 頁面載入完成後初始化
+        window.onload = initializePlayer;
+
+    </script>
+</body>
+</html>
