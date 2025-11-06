@@ -1,0 +1,66 @@
+h1,h2,h3,h4,p,li {
+     font-family: 微軟正黑體, sans-serif;
+     color: #444444;
+}
+h1, h2, h3, h4, p, li {
+font-family: 微軟正黑體, sans-serif;
+}
+
+h1 {
+    font-size: 42px;
+}
+h2{
+ font-size: 42px;
+ }
+h3 {
+font-size: 32px;
+ 
+}
+h4 {
+     font-size: 26px;
+  
+  text-transform: uppercase;
+  text-align: center;
+
+}
+h1,h2,h3 {
+ color: #1098ad;
+}
+
+
+li {
+ font-size: 20px;
+ 
+}
+
+#copyright{
+    
+  font-size: 16px;
+}
+#author{
+    
+  font-size: 18px;
+  font-style:  italic;
+}
+
+.related-author {
+ font-size: 18px;
+ font-weight: bold;
+}
+.related {
+  list-style: none;
+}
+
+.main-header {
+   background-color: #4d791c;
+  }
+aside {
+background-color: #f7f7f7;
+border: 5px solid #1098ad;
+border-bottom: 5px solid #1098ad;
+
+}
+
+
+
+
