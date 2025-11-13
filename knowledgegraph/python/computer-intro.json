@@ -1,0 +1,669 @@
+{
+  "nodes": [
+    {
+      "id": "CH1",
+      "label": "CH1 電腦科技的認識與應用",
+      "level": 1,
+      "group": "Fundamentals"
+    },
+    {
+      "id": "1-1",
+      "label": "1-1 電腦的發展歷史",
+      "level": 2,
+      "group": "Fundamentals"
+    },
+    {
+      "id": "1-2",
+      "label": "1-2 電腦的類型",
+      "level": 2,
+      "group": "Fundamentals"
+    },
+    {
+      "id": "CH2",
+      "label": "CH2 資料處理與分析",
+      "level": 1,
+      "group": "Data"
+    },
+    {
+      "id": "2-1",
+      "label": "2-1 資料科學",
+      "level": 2,
+      "group": "Data"
+    },
+    {
+      "id": "2-2",
+      "label": "2-2 資料取得",
+      "level": 2,
+      "group": "Data"
+    },
+    {
+      "id": "2-3",
+      "label": "2-3 資料預處理",
+      "level": 2,
+      "group": "Data"
+    },
+    {
+      "id": "2-4",
+      "label": "2-4 資料處理",
+      "level": 2,
+      "group": "Data"
+    },
+    {
+      "id": "2-5",
+      "label": "2-5 資料分析",
+      "level": 2,
+      "group": "Data"
+    },
+    {
+      "id": "2-6",
+      "label": "2-6 大數據",
+      "level": 2,
+      "group": "Data"
+    },
+    {
+      "id": "CH3",
+      "label": "CH3 電腦科技新興技術與應用",
+      "level": 1,
+      "group": "EmergingTech"
+    },
+    {
+      "id": "3-1",
+      "label": "3-1 雲端運算與邊緣運算",
+      "level": 2,
+      "group": "EmergingTech"
+    },
+    {
+      "id": "3-2",
+      "label": "3-2 物聯網",
+      "level": 2,
+      "group": "EmergingTech"
+    },
+    {
+      "id": "3-3",
+      "label": "3-3 人工智慧",
+      "level": 2,
+      "group": "EmergingTech"
+    },
+    {
+      "id": "3-4",
+      "label": "3-4 影像辨識與電腦視覺",
+      "level": 2,
+      "group": "EmergingTech"
+    },
+    {
+      "id": "3-5",
+      "label": "3-5 語音辨識與自然語言",
+      "level": 2,
+      "group": "EmergingTech"
+    },
+    {
+      "id": "3-6",
+      "label": "3-6 知識圖譜",
+      "level": 2,
+      "group": "EmergingTech"
+    },
+    {
+      "id": "3-7",
+      "label": "3-7 機器學習",
+      "level": 2,
+      "group": "EmergingTech"
+    },
+    {
+      "id": "3-8",
+      "label": "3-8 深度學習",
+      "level": 2,
+      "group": "EmergingTech"
+    },
+    {
+      "id": "3-9",
+      "label": "3-9 生成式AI",
+      "level": 2,
+      "group": "EmergingTech"
+    },
+    {
+      "id": "3-10",
+      "label": "3-10 區塊鏈",
+      "level": 2,
+      "group": "EmergingTech"
+    },
+    {
+      "id": "3-11",
+      "label": "3-11 擴增實境／虛擬實境／混合實境／延展實境與元宇宙",
+      "level": 2,
+      "group": "EmergingTech"
+    },
+    {
+      "id": "3-12",
+      "label": "3-12 AI電腦與量子電腦",
+      "level": 2,
+      "group": "EmergingTech"
+    },
+    {
+      "id": "CH4",
+      "label": "CH4 電腦硬體組成與周邊設備",
+      "level": 1,
+      "group": "Hardware"
+    },
+    {
+      "id": "4-1",
+      "label": "4-1 認識電腦組成元件",
+      "level": 2,
+      "group": "Hardware"
+    },
+    {
+      "id": "4-2",
+      "label": "4-2 電腦主機的組成",
+      "level": 2,
+      "group": "Hardware"
+    },
+    {
+      "id": "4-3",
+      "label": "4-3 輸出／入設備",
+      "level": 2,
+      "group": "Hardware"
+    },
+    {
+      "id": "4-4",
+      "label": "4-4 電腦使用常見問題",
+      "level": 2,
+      "group": "Hardware"
+    },
+    {
+      "id": "CH5",
+      "label": "CH5 電腦軟體簡介",
+      "level": 1,
+      "group": "Software"
+    },
+    {
+      "id": "5-1",
+      "label": "5-1 軟體的分類",
+      "level": 2,
+      "group": "Software"
+    },
+    {
+      "id": "5-2",
+      "label": "5-2 認識系統軟體",
+      "level": 2,
+      "group": "Software"
+    },
+    {
+      "id": "5-3",
+      "label": "5-3 認識應用軟體",
+      "level": 2,
+      "group": "Software"
+    },
+    {
+      "id": "5-4",
+      "label": "5-4 軟體安裝與維護",
+      "level": 2,
+      "group": "Software"
+    },
+    {
+      "id": "5-5",
+      "label": "5-5 生成式AI軟體",
+      "level": 2,
+      "group": "Software"
+    },
+    {
+      "id": "CH6",
+      "label": "CH6 作業系統",
+      "level": 1,
+      "group": "OperatingSystem"
+    },
+    {
+      "id": "6-1",
+      "label": "6-1 認識作業系統",
+      "level": 2,
+      "group": "OperatingSystem"
+    },
+    {
+      "id": "6-2",
+      "label": "6-2 作業系統的類型",
+      "level": 2,
+      "group": "OperatingSystem"
+    },
+    {
+      "id": "6-3",
+      "label": "6-3 常見作業系統介紹",
+      "level": 2,
+      "group": "OperatingSystem"
+    },
+    {
+      "id": "CH7",
+      "label": "CH7 數位多媒體",
+      "level": 1,
+      "group": "Multimedia"
+    },
+    {
+      "id": "7-1",
+      "label": "7-1 認識多媒體",
+      "level": 2,
+      "group": "Multimedia"
+    },
+    {
+      "id": "7-2",
+      "label": "7-2 文字媒體",
+      "level": 2,
+      "group": "Multimedia"
+    },
+    {
+      "id": "7-3",
+      "label": "7-3 音訊媒體",
+      "level": 2,
+      "group": "Multimedia"
+    },
+    {
+      "id": "7-4",
+      "label": "7-4 影像媒體",
+      "level": 2,
+      "group": "Multimedia"
+    },
+    {
+      "id": "7-5",
+      "label": "7-5 視訊媒體",
+      "level": 2,
+      "group": "Multimedia"
+    },
+    {
+      "id": "7-6",
+      "label": "7-6 動畫媒體",
+      "level": 2,
+      "group": "Multimedia"
+    },
+    {
+      "id": "7-7",
+      "label": "7-7 生成式AI多媒體應用",
+      "level": 2,
+      "group": "Multimedia"
+    },
+    {
+      "id": "CH8",
+      "label": "CH8 網路與行動通訊基本概念",
+      "level": 1,
+      "group": "Network"
+    },
+    {
+      "id": "8-1",
+      "label": "8-1 認識電腦網路",
+      "level": 2,
+      "group": "Network"
+    },
+    {
+      "id": "8-2",
+      "label": "8-2 網路通訊協定",
+      "level": 2,
+      "group": "Network"
+    },
+    {
+      "id": "8-3",
+      "label": "8-3 行動通訊系統",
+      "level": 2,
+      "group": "Network"
+    },
+    {
+      "id": "CH9",
+      "label": "CH9 網際網路與資源應用",
+      "level": 1,
+      "group": "Internet"
+    },
+    {
+      "id": "9-1",
+      "label": "9-1 網際網路與全球資訊網",
+      "level": 2,
+      "group": "Internet"
+    },
+    {
+      "id": "9-2",
+      "label": "9-2 網際網路服務",
+      "level": 2,
+      "group": "Internet"
+    },
+    {
+      "id": "9-3",
+      "label": "9-3 網際網路應用",
+      "level": 2,
+      "group": "Internet"
+    },
+    {
+      "id": "9-4",
+      "label": "9-4 生成式AI平台應用",
+      "level": 2,
+      "group": "Internet"
+    },
+    {
+      "id": "CH10",
+      "label": "CH10 資訊安全與資訊倫理",
+      "level": 1,
+      "group": "SecurityEthics"
+    },
+    {
+      "id": "10-1",
+      "label": "10-1 認識網路資訊安全",
+      "level": 2,
+      "group": "SecurityEthics"
+    },
+    {
+      "id": "10-2",
+      "label": "10-2 網路資訊安全技術",
+      "level": 2,
+      "group": "SecurityEthics"
+    },
+    {
+      "id": "10-3",
+      "label": "10-3 惡意軟體與防範",
+      "level": 2,
+      "group": "SecurityEthics"
+    },
+    {
+      "id": "10-4",
+      "label": "10-4 認識資訊倫理與法律",
+      "level": 2,
+      "group": "SecurityEthics"
+    },
+    {
+      "id": "10-5",
+      "label": "10-5 AI應用倫理與智財權",
+      "level": 2,
+      "group": "SecurityEthics"
+    }
+  ],
+  "edges": [
+    {
+      "source": "CH1",
+      "target": "1-1",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH1",
+      "target": "1-2",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH2",
+      "target": "2-1",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH2",
+      "target": "2-2",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH2",
+      "target": "2-3",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH2",
+      "target": "2-4",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH2",
+      "target": "2-5",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH2",
+      "target": "2-6",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH3",
+      "target": "3-1",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH3",
+      "target": "3-2",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH3",
+      "target": "3-3",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH3",
+      "target": "3-4",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH3",
+      "target": "3-5",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH3",
+      "target": "3-6",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH3",
+      "target": "3-7",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH3",
+      "target": "3-8",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH3",
+      "target": "3-9",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH3",
+      "target": "3-10",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH3",
+      "target": "3-11",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH3",
+      "target": "3-12",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH4",
+      "target": "4-1",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH4",
+      "target": "4-2",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH4",
+      "target": "4-3",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH4",
+      "target": "4-4",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH5",
+      "target": "5-1",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH5",
+      "target": "5-2",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH5",
+      "target": "5-3",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH5",
+      "target": "5-4",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH5",
+      "target": "5-5",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH6",
+      "target": "6-1",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH6",
+      "target": "6-2",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH6",
+      "target": "6-3",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH7",
+      "target": "7-1",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH7",
+      "target": "7-2",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH7",
+      "target": "7-3",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH7",
+      "target": "7-4",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH7",
+      "target": "7-5",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH7",
+      "target": "7-6",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH7",
+      "target": "7-7",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH8",
+      "target": "8-1",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH8",
+      "target": "8-2",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH8",
+      "target": "8-3",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH9",
+      "target": "9-1",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH9",
+      "target": "9-2",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH9",
+      "target": "9-3",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH9",
+      "target": "9-4",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH10",
+      "target": "10-1",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH10",
+      "target": "10-2",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH10",
+      "target": "10-3",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH10",
+      "target": "10-4",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH10",
+      "target": "10-5",
+      "label": "CONTAINS_SUBSECTION"
+    },
+    {
+      "source": "CH5",
+      "target": "CH6",
+      "label": "RELATED_TO",
+      "description": "作業系統是系統軟體的一種"
+    },
+    {
+      "source": "CH3",
+      "target": "CH2",
+      "label": "RELATED_TO",
+      "description": "AI/ML (CH3) 應用於資料處理與分析 (CH2)"
+    },
+    {
+      "source": "CH4",
+      "target": "CH5",
+      "label": "RELATED_TO",
+      "description": "硬體與軟體是電腦的兩大組成"
+    },
+    {
+      "source": "CH8",
+      "target": "CH9",
+      "label": "RELATED_TO",
+      "description": "網路基本概念是網際網路應用的基礎"
+    },
+    {
+      "source": "CH7",
+      "target": "CH3",
+      "label": "RELATED_TO",
+      "description": "生成式AI多媒體應用是新興技術的應用"
+    },
+    {
+      "source": "CH9",
+      "target": "CH10",
+      "label": "RELATED_TO",
+      "description": "網際網路應用衍生資訊安全與倫理問題"
+    },
+    {
+      "source": "CH1",
+      "target": "CH4",
+      "label": "RELATED_TO",
+      "description": "電腦類型與硬體組成相關"
+    }
+  ]
+}
