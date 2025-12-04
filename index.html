@@ -113,20 +113,44 @@
                </div>
            </a>
 
+                    
+           
+             <!-- 單週課程卡片：單元2 -->
+           <a href="knowledgegraph/python/index.html" class="block transition duration-300 ease-in-out transform hover:scale-[1.01] hover:shadow-lg rounded-xl overflow-hidden bg-white border border-gray-200">
+               <div class="p-5 flex items-start space-x-4">
+                   <!-- 標記 -->
+                   <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-blue-500 text-white rounded-full text-lg font-bold">
+                       5
+                   </div>
+                   <!-- 內容 -->
+                   <div>
+                       <h3 class="text-xl font-semibold text-gray-900 mb-1">
+                           knowledgegraph
+                       </h3>
+                       <p class="text-gray-500 text-sm">
+                        knowledgegraph goole gihab
+                       </p>
+                       <span class="mt-2 inline-block text-blue-600 font-medium text-sm">點擊進入課程 &rarr;</span>
+                   </div>
+               </div>
+           </a>
+
+           
+           
             <!-- 單週課程卡片：附錄1 -->
-            <a href="https://simplelearn.tw/ai-literacy-history/" class="block transition duration-300 ease-in-out transform hover:scale-[1.01] hover:shadow-lg rounded-xl overflow-hidden bg-white border border-gray-200">
+            <a href=https://docs.google.com/presentation/d/14mtYlxxIIh515rzzylI1uR876EjY6TF0HOyF5Cnw7e0/edit?pli=1&slide=id.p1#slide=id.p1" class="block transition duration-300 ease-in-out transform hover:scale-[1.01] hover:shadow-lg rounded-xl overflow-hidden bg-white border border-gray-200">
                 <div class="p-5 flex items-start space-x-4">
                     <!-- 標記 -->
                     <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-blue-500 text-white rounded-full text-lg font-bold">
-                        A-1
+                      6
                     </div>
                     <!-- 內容 -->
                     <div>
                         <h3 class="text-xl font-semibold text-gray-900 mb-1">
-                            AI 發展史：從起源到現代應用
+                           japan travel
                         </h3>
                         <p class="text-gray-500 text-sm">
-                            AI歷史從機器人概念誕生到圖靈測試確立智慧，再經深藍、AlphaGo到ChatGPT等重大突破，持續改變人類生活。
+                            japan travel 
                         </p>
                         <span class="mt-2 inline-block text-blue-600 font-medium text-sm">點擊進入課程 &rarr;</span>
                     </div>
@@ -143,417 +167,23 @@
     </div>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>經典貪吃蛇遊戲</title>
-    <!-- 載入 Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* 使用 Inter 字體 */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0fdfa; /* 淺綠松石背景 */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
 
-        /* 讓 Canvas 具有圓角和陰影 */
-        #gameCanvas {
-            border: 4px solid #064e3b; /* 深綠色邊框 */
-            background-color: #ecfdf5; /* 淺色遊戲區域 */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
-        /* 按鈕樣式 */
-        .game-button {
-            transition: all 0.15s ease-in-out;
-        }
-        .game-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .game-button:active {
-            transform: translateY(0);
-            box-shadow: none;
-        }
-
-        /* 遊戲狀態訊息樣式 */
-        #statusMessage {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 1.5rem 3rem;
-            background-color: rgba(6, 78, 59, 0.95); /* 深綠松石 */
-            color: #ecfdf5;
-            border-radius: 1rem;
-            text-align: center;
-            font-size: 1.25rem;
-            font-weight: bold;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-            display: none;
-        }
-
-        /* 方向控制按鈕佈局 (針對觸控螢幕) */
-        .d-pad-container {
-            display: grid;
-            grid-template-areas:
-                ". up ."
-                "left center right"
-                ". down .";
-            width: 150px; /* 調整大小以適應手機觸控 */
-            height: 150px;
-        }
-        .d-pad-button {
-            @apply bg-teal-500 text-white p-3 rounded-md shadow-lg font-bold text-sm game-button;
-        }
-        #btnUp { grid-area: up; }
-        #btnDown { grid-area: down; }
-        #btnLeft { grid-area: left; }
-        #btnRight { grid-area: right; }
-    </style>
-</head>
-<body class="p-4">
-
-    <!-- 主遊戲容器 (調整 max-w 以適應更大的畫布) -->
-    <div id="gameContainer" class="max-w-4xl w-full mx-auto p-4 md:p-6 bg-white rounded-xl shadow-2xl border border-teal-100">
-
-        <!-- 標題和分數 -->
-        <header class="mb-4 flex justify-between items-center border-b pb-3 border-teal-200">
-            <h1 class="text-3xl font-bold text-teal-800">貪吃蛇遊戲 (大地圖)</h1>
-            <div class="text-xl font-mono text-teal-700 bg-teal-50 px-4 py-1 rounded-lg border border-teal-300 shadow-inner">
-                分數: <span id="score">0</span>
-            </div>
-        </header>
-
-        <!-- 遊戲畫布容器 -->
-        <div class="relative flex justify-center items-center">
-            <!-- 將寬度和高度從 400 增加到 800 -->
-            <canvas id="gameCanvas" width="800" height="800" class="rounded-lg"></canvas>
-
-            <!-- 遊戲狀態訊息 (暫停/遊戲結束) -->
-            <div id="statusMessage">
-                <p id="statusText" class="text-2xl mb-2"></p>
-                <button id="startButton" class="mt-4 bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-4 rounded-full game-button">
-                    開始遊戲 (或按空格鍵)
-                </button>
-            </div>
-        </div>
-
-        <!-- 控制區塊 -->
-        <div class="mt-6 flex flex-col md:flex-row justify-between items-center">
-
-            <!-- 鍵盤控制說明 (桌面版) -->
-            <div class="hidden md:block text-teal-700 text-sm p-3 bg-teal-50 rounded-lg shadow-inner">
-                <p>使用 **方向鍵** 控制蛇的移動。</p>
-                <p>按 **空格鍵** 開始/暫停遊戲。</p>
-            </div>
-
-            <!-- 觸控螢幕/手機方向鍵 -->
-            <div class="d-pad-container md:ml-auto">
-                <button id="btnUp" class="d-pad-button" data-direction="UP">上</button>
-                <div class="grid grid-cols-3 gap-2 col-span-3 row-span-1" style="grid-area: left; display: contents;">
-                    <button id="btnLeft" class="d-pad-button" data-direction="LEFT">左</button>
-                    <div id="btnCenter" class="flex items-center justify-center">
-                        <button id="btnPause" class="bg-yellow-500 hover:bg-yellow-600 text-black py-2 px-3 rounded-full shadow-lg font-bold text-xs game-button">
-                            暫停
-                        </button>
-                    </div>
-                    <button id="btnRight" class="d-pad-button" data-direction="RIGHT">右</button>
-                </div>
-                <button id="btnDown" class="d-pad-button" data-direction="DOWN">下</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // 設定 Firebase 所需的全局變數，雖然貪吃蛇不需要資料庫，但這是標準流程
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-
-        // 遊戲設定
-        const canvas = document.getElementById('gameCanvas');
-        const ctx = canvas.getContext('2d');
-        const statusMessage = document.getElementById('statusMessage');
-        const statusText = document.getElementById('statusText');
-        const startButton = document.getElementById('startButton');
-        const scoreDisplay = document.getElementById('score');
-        const gridSize = 20; // 網格大小 (像素)
-        // 由於畫布是 800x800，tileCount 現在是 800 / 20 = 40
-        const tileCount = canvas.width / gridSize; // 網格數量 (40x40)
-        let snake = [];
-        let food = {};
-        let velocityX = 0;
-        let velocityY = 0;
-        let gameLoopInterval;
-        let gameSpeed = 150; // 毫秒
-        let score = 0;
-        let isPaused = true;
-        let lastDirection = 'RIGHT'; // 用來防止回頭的變量
-
-        // 初始化蛇
-        function resetGame() {
-            // 將蛇的初始位置設置在新畫布的中心 (40 / 2 = 20)
-            const initialX = Math.floor(tileCount / 2); 
-            const initialY = Math.floor(tileCount / 2);
-            snake = [{ x: initialX, y: initialY }]; 
-            velocityX = 1;
-            velocityY = 0;
-            score = 0;
-            scoreDisplay.textContent = score;
-            isPaused = true;
-            lastDirection = 'RIGHT';
-            // 清除遊戲迴圈，防止重複啟動
-            if (gameLoopInterval) clearInterval(gameLoopInterval);
-            placeFood();
-            draw();
-            showStatus('準備開始！', '按 開始 按鈕或空格鍵');
-        }
-
-        // 放置食物
-        function placeFood() {
-            let newFood;
-            do {
-                // 隨機產生食物位置
-                newFood = {
-                    x: Math.floor(Math.random() * tileCount),
-                    y: Math.floor(Math.random() * tileCount)
-                };
-                // 檢查食物是否落在蛇身上
-            } while (snake.some(segment => segment.x === newFood.x && segment.y === newFood.y));
-            food = newFood;
-        }
-
-        // 繪製遊戲元素
-        function draw() {
-            // 清除畫布
-            ctx.fillStyle = '#ecfdf5'; // 遊戲區域背景
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // 繪製食物 (使用圓形)
-            ctx.fillStyle = '#f87171'; // 紅色
-            ctx.beginPath();
-            ctx.arc(
-                food.x * gridSize + gridSize / 2,
-                food.y * gridSize + gridSize / 2,
-                gridSize / 2 * 0.8, // 稍微小一點
-                0,
-                2 * Math.PI
-            );
-            ctx.fill();
-
-            // 繪製蛇
-            snake.forEach((segment, index) => {
-                // 蛇頭使用深色
-                if (index === 0) {
-                    ctx.fillStyle = '#064e3b'; // 深綠色
-                } else {
-                    ctx.fillStyle = '#34d399'; // 淺綠松石
-                }
-                
-                // 繪製圓角矩形
-                const x = segment.x * gridSize;
-                const y = segment.y * gridSize;
-                const radius = 3;
-                
-                ctx.beginPath();
-                ctx.moveTo(x + radius, y);
-                ctx.lineTo(x + gridSize - radius, y);
-                ctx.quadraticCurveTo(x + gridSize, y, x + gridSize, y + radius);
-                ctx.lineTo(x + gridSize, y + gridSize - radius);
-                ctx.quadraticCurveTo(x + gridSize, y + gridSize, x + gridSize - radius, y + gridSize);
-                ctx.lineTo(x + radius, y + gridSize);
-                ctx.quadraticCurveTo(x, y + gridSize, x, y + gridSize - radius);
-                ctx.lineTo(x, y + radius);
-                ctx.quadraticCurveTo(x, y, x + radius, y);
-                ctx.closePath();
-                ctx.fill();
-            });
-        }
-
-        // 遊戲主迴圈
-        function gameLoop() {
-            if (isPaused) return;
-
-            // 1. 移動蛇
-            const head = { x: snake[0].x + velocityX, y: snake[0].y + velocityY };
-            
-            // 更新 lastDirection
-            if (velocityX === 1) lastDirection = 'RIGHT';
-            else if (velocityX === -1) lastDirection = 'LEFT';
-            else if (velocityY === 1) lastDirection = 'DOWN';
-            else if (velocityY === -1) lastDirection = 'UP';
-
-
-            // 2. 檢查遊戲結束條件 (撞牆或撞到自己)
-            if (
-                head.x < 0 || head.x >= tileCount || // 撞牆 (水平)
-                head.y < 0 || head.y >= tileCount || // 撞牆 (垂直)
-                snake.some((segment, index) => index > 0 && segment.x === head.x && segment.y === head.y) // 撞到自己
-            ) {
-                gameOver();
-                return;
-            }
-
-            // 將新頭部添加到蛇身
-            snake.unshift(head);
-
-            // 3. 檢查是否吃到食物
-            if (head.x === food.x && head.y === food.y) {
-                score++;
-                scoreDisplay.textContent = score;
-                // 吃到食物，蛇身長度增加 (不移除尾部)
-                placeFood();
-            } else {
-                // 沒吃到食物，移除尾部以模擬移動
-                snake.pop();
-            }
-
-            // 4. 繪製
-            draw();
-        }
-
-        // 處理鍵盤輸入
-        function handleKeyInput(event) {
-            // 如果是空格鍵，則切換暫停狀態
-            if (event.code === 'Space') {
-                event.preventDefault(); // 防止頁面滾動
-                togglePause();
-                return;
-            }
-
-            // 只有在遊戲運行時才接受方向輸入
-            if (isPaused) return;
-
-            const key = event.key;
-            changeDirection(key);
-        }
-
-        // 處理方向改變
-        function changeDirection(key) {
-             // 確保不會立即往回走
-            switch (key) {
-                case 'ArrowUp':
-                case 'w':
-                case 'W':
-                case 'UP':
-                    if (lastDirection !== 'DOWN') {
-                        velocityX = 0;
-                        velocityY = -1;
-                    }
-                    break;
-                case 'ArrowDown':
-                case 's':
-                case 'S':
-                case 'DOWN':
-                    if (lastDirection !== 'UP') {
-                        velocityX = 0;
-                        velocityY = 1;
-                    }
-                    break;
-                case 'ArrowLeft':
-                case 'a':
-                case 'A':
-                case 'LEFT':
-                    if (lastDirection !== 'RIGHT') {
-                        velocityX = -1;
-                        velocityY = 0;
-                    }
-                    break;
-                case 'ArrowRight':
-                case 'd':
-                case 'D':
-                case 'RIGHT':
-                    if (lastDirection !== 'LEFT') {
-                        velocityX = 1;
-                        velocityY = 0;
-                    }
-                    break;
-            }
-        }
-
-
-        // 顯示狀態訊息
-        function showStatus(title, message) {
-            statusText.innerHTML = `<span class="text-3xl block">${title}</span><span class="text-base block mt-2">${message}</span>`;
-            statusMessage.style.display = 'block';
-            startButton.textContent = title === '遊戲結束！' ? '重新開始' : '繼續遊戲 (或按空格鍵)';
-        }
-
-        // 隱藏狀態訊息
-        function hideStatus() {
-            statusMessage.style.display = 'none';
-        }
-
-        // 開始/繼續遊戲
-        function startGame() {
-            if (gameLoopInterval) clearInterval(gameLoopInterval);
-            // 如果是重新開始，則重置遊戲狀態
-            if (statusText.textContent.includes('遊戲結束')) {
-                resetGame();
-            }
-            isPaused = false;
-            hideStatus();
-            // 遊戲迴圈
-            gameLoopInterval = setInterval(gameLoop, gameSpeed);
-        }
-
-        // 切換暫停狀態
-        function togglePause() {
-            if (isPaused) {
-                startGame();
-            } else {
-                isPaused = true;
-                showStatus('暫停', '點擊 開始/繼續 或按空格鍵');
-                // 清除迴圈，防止在暫停時還在移動
-                if (gameLoopInterval) clearInterval(gameLoopInterval);
-            }
-        }
-
-        // 遊戲結束
-        function gameOver() {
-            isPaused = true;
-            if (gameLoopInterval) clearInterval(gameLoopInterval);
-            showStatus('遊戲結束！', `您的最終得分是: ${score}`);
-        }
-
-        // --- 事件監聽器 ---
-
-        // 桌面鍵盤控制
-        document.addEventListener('keydown', handleKeyInput);
-
-        // 開始/重新開始按鈕
-        startButton.addEventListener('click', startGame);
-
-        // 暫停按鈕
-        document.getElementById('btnPause').addEventListener('click', togglePause);
-
-        // 手機/觸控方向鍵控制
-        const dPadButtons = document.querySelectorAll('.d-pad-container button');
-        dPadButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const direction = e.currentTarget.getAttribute('data-direction');
-                if (direction) {
-                    if (isPaused) {
-                        // 如果是暫停狀態，方向鍵視為開始鍵
-                        startGame();
-                    }
-                    changeDirection(direction);
-                }
-            });
-        });
-
-        // 確保在頁面載入後初始化遊戲
-        window.onload = resetGame;
-
-    </script>
-</body>
-</html>
+ <!-- 單週課程卡片：單元14 -->
+           <a href="旅游分析/index.html" class="block transition duration-300 ease-in-out transform hover:scale-[1.01] hover:shadow-lg rounded-xl overflow-hidden bg-white border border-gray-200">
+               <div class="p-5 flex items-start space-x-4">
+                   <!-- 標記 -->
+                   <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-blue-500 text-white rounded-full text-lg font-bold">
+                       14
+                   </div>
+                   <!-- 內容 -->
+                   <div>
+                       <h3 class="text-xl font-semibold text-gray-900 mb-1">
+                           生成旅游分析資料
+                       </h3>
+                       <p class="text-gray-500 text-sm">
+                       使用python
+                       </p>
+                       <span class="mt-2 inline-block text-blue-600 font-medium text-sm">點擊進入課程 &rarr;</span>
+                   </div>
+               </div>
+           </a>
